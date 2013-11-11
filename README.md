@@ -42,4 +42,5 @@ Runs the `condition` function every `frequency` milliseconds until either `condi
 
 ### `justWait(timeout)`
  * `timeout` : the amount of time to wait for (duh)
+
 Returns a promise which will resolve in `timeout` milliseconds.
