@@ -44,3 +44,6 @@ Runs the `condition` function every `frequency` milliseconds until either `condi
  * `timeout` : the amount of time to wait for (duh)
 
 Returns a promise which will resolve in `timeout` milliseconds.
+
+## See Also
+[chai-as-promised](https://github.com/domenic/chai-as-promised) and [mocha-as-promised](https://github.com/domenic/mocha-as-promised) are both wonderful ways to clean up async tests with promises, you can even avoid the nasty `.then(function(){done()}, done)` at the end of your promise chain!
