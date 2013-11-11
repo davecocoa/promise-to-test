@@ -38,6 +38,7 @@ So this is actually a similar amount of code, but...
  * `condition` : a function using assertions to test for something
  * `timeout` : optional, the amount of time to wait before failing, defaults to 1000 milliseconds
  * `frequency` : optional, the amount of time to wait before checking again, defaults to 10 milliseconds
+
 Runs the `condition` function every `frequency` milliseconds until either `condition` runs without errors *or* `timeout` milliseconds have passed. Returns a promise that resolves if `condition` runs without errors and rejects with the last error thrown by `condition` if `timeout` is reached.
 
 ### `justWait(timeout)`
