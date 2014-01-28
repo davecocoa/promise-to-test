@@ -3,7 +3,7 @@ module.exports = {
   waitFor: function(condition, timeout, frequency){
     timeout = timeout || 1000
     frequency = frequency || 10
-    return new q.Promise(function(resolve, reject){
+    return new q.promise(function(resolve, reject){
       var timedout = false, it = setInterval(function(){
         try {
           condition()
@@ -23,7 +23,7 @@ module.exports = {
     })
   },
   justWait: function(timeout){
-    return new q.Promise(function(resolve, reject){
+    return new q.promise(function(resolve, reject){
       setTimeout(resolve, timeout)
     })
   }
