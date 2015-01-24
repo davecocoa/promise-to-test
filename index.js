@@ -3,24 +3,16 @@ module.exports = {
   waitFor: function(condition, timeout, frequency){
     timeout = timeout || 1000
     frequency = frequency || 10
-    return new q.promise(function(resolve, reject){
-      var timedout = false, it = setInterval(function(){
-        try {
-          condition()
-
-          resolve()
-          clearInterval(it)
-        } catch(e){
-          if(timedout) {
-            reject(e)
-            clearInterval(it)
-          }
-        }
-      }, frequency)
-      setTimeout(function(){
-        timedout=true
-      }, timeout)
-    })
+    var now = new Date().getTime()
+    
+    var try = function(error){
+      if((new Date().getTime() - now) > timeout) { throw error }
+      return this.justWait(frequency)
+                .then(condition)
+                .then(null, try)
+    }.bind(this)
+    
+    return try()
   },
   justWait: function(timeout){
     return new q.promise(function(resolve, reject){
